@@ -15,7 +15,13 @@ function App() {
         level={level}
         onChangeLevel={setLevel}
       />
-      <main>{tab === "game" ? <GameScreen /> : <RankingScreen />}</main>
+      <main>
+        {tab === "game" ? (
+          <GameScreen key={level} level={level} />
+        ) : (
+          <RankingScreen />
+        )}
+      </main>
     </div>
   );
 }
