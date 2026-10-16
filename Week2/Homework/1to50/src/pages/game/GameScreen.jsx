@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { useGame } from "../../hooks/useGame";
 import * as styles from "./gameScreen.css.js";
 
-function GameScreen({ level }) {
+function GameScreen({ level, onStart, onFinish }) {
   const { size, total, board, next, isFinished, click } = useGame(level);
+
+  useEffect(() => {
+    if (isFinished) onFinish();
+  }, [isFinished]);
 
   return (
     <section className={styles.container}>
@@ -24,7 +29,10 @@ function GameScreen({ level }) {
             type="button"
             className={styles.number}
             disabled={isFinished || num === null}
-            onClick={() => click(index)}
+            onClick={() => {
+              if (num === 1) onStart();
+              click(index);
+            }}
           >
             {num}
           </button>

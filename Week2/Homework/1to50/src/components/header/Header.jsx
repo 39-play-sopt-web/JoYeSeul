@@ -1,6 +1,6 @@
 import * as styles from "./header.css.js";
 
-const Header = ({ tab, onChangeTab, level, onChangeLevel }) => {
+const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>🔢 숫자 클릭 게임</h1>
@@ -33,7 +33,7 @@ const Header = ({ tab, onChangeTab, level, onChangeLevel }) => {
             <option value={2}>Level 2 (4x4)</option>
             <option value={3}>Level 3 (5x5)</option>
           </select>
-          <p className={styles.timer}>0.00초</p>
+          <p className={styles.timer}>{time.toFixed(2)}초</p>
         </div>
       )}
     </header>
