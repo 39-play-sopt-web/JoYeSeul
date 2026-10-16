@@ -5,6 +5,7 @@ import RankingScreen from "./pages/ranking/RankingScreen";
 import Header from "./components/header/Header";
 import { useTimer } from "./hooks/useTimer.js";
 import Modal from "./components/modal/Modal.jsx";
+import { saveRecord } from "./utils/record.js";
 
 function App() {
   const [tab, setTab] = useState("game");
@@ -26,6 +27,11 @@ function App() {
 
   const handleFinish = () => {
     const finalTime = stop();
+    saveRecord({
+      timestamp: new Date().toISOString(),
+      level: level,
+      time: finalTime,
+    });
     setRecord(finalTime);
   };
 
