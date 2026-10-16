@@ -10,6 +10,7 @@ export const colors = {
 
   sky50: "#F0F9FF",
   sky100: "#DDF1FC",
+  sky200: "#C3E7F9",
   sky300: "#A9DCF7",
   sky500: "#7CC6EE",
   sky700: "#3E9CD0",

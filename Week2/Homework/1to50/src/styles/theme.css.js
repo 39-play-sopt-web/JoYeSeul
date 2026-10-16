@@ -15,9 +15,11 @@ export const vars = createGlobalTheme(":root", {
       strong: colors.sky700,
     },
     background: {
-      normal: colors.white,
+      white: colors.white,
       subtle: colors.sky50,
+      normal: colors.sky200,
       strong: colors.sky300,
+      hover: colors.sky100,
     },
     border: {
       normal: colors.gray200,
@@ -41,6 +43,8 @@ export const vars = createGlobalTheme(":root", {
     sm: "8px",
     md: "12px",
     lg: "16px",
+    xl: "24px",
+    xxl: "32px",
   },
   borderRadius: {
     sm: "8px",
