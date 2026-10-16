@@ -54,13 +54,16 @@ export const number = style([
   }),
   {
     aspectRatio: "1",
-    transition: "background-color 0.15s ease",
+    transition: "background-color 0.15s ease, transform 0.1s ease",
     ":hover": {
       backgroundColor: vars.color.primary.subtle,
     },
     ":disabled": {
       backgroundColor: vars.color.background.strong,
       cursor: "default",
+    },
+    ":active": {
+      transform: "scale(0.9)",
     },
   },
 ]);
