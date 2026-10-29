@@ -1,7 +1,12 @@
 const STORAGE_KEY = "records";
 
 export const getRecords = () => {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
 };
 
 export const saveRecord = (record) => {
