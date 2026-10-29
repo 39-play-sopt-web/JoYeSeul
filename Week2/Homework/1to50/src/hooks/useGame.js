@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 
-const range = (from, n) => Array.from({ length: n }, (_, i) => from + i);
+const range = (from, count) =>
+  Array.from({ length: count }, (_, i) => from + i);
 
 const shuffle = (array) => {
   const result = [...array];
