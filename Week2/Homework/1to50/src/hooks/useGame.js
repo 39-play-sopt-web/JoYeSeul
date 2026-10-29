@@ -21,7 +21,6 @@ const initGame = (size) => {
   return {
     board: front,
     queue: back,
-    size: size,
     next: 1,
   };
 };
@@ -44,8 +43,6 @@ function reducer(state, action) {
         next: state.next + 1,
       };
     }
-    case "reset":
-      return initGame(state.size);
     default:
       return state;
   }
@@ -73,6 +70,5 @@ export const useGame = (level, { onStart, onFinish } = {}) => {
     next: state.next,
     isFinished: isFinished,
     click: click,
-    reset: () => dispatch({ type: "reset" }),
   };
 };
