@@ -14,6 +14,9 @@ export const colors = {
   sky300: "#A9DCF7",
   sky500: "#7CC6EE",
   sky700: "#3E9CD0",
+
+  red100: "#e5484d33",
+  red500: "#e5484d",
 };
 
 export const media = {

@@ -26,6 +26,10 @@ export const vars = createGlobalTheme(":root", {
       subtle: colors.gray100,
       strong: colors.gray400,
     },
+    danger: {
+      normal: colors.red500,
+      subtle: colors.red100,
+    },
   },
   fontSize: {
     sm: "14px",

@@ -43,11 +43,11 @@ export const resetButton = style([
     fontWeight: "bold",
   }),
   {
-    color: "#e4474c",
-    border: "1px solid #e4474c",
+    color: vars.color.danger.normal,
+    border: `1px solid ${vars.color.danger.normal}`,
     transition: "background-color 0.2s, color 0.2s",
     ":hover": {
-      backgroundColor: "rgba(229, 72, 77, 0.2)",
+      backgroundColor: vars.color.danger.subtle,
     },
   },
 ]);
