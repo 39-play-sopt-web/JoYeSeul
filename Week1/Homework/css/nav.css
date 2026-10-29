@@ -1,0 +1,42 @@
+nav {
+  position: sticky;
+  top: 92px;
+  align-self: flex-start;
+
+  ul.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    list-style: none;
+    margin: 0;
+    padding-inline: 8px;
+
+    li {
+      a {
+        display: block;
+        padding-inline: 16px;
+        padding-block: 12px;
+        background-color: #d4cdf4;
+
+        text-decoration: none;
+        color: #2e2a5a;
+        font-weight: bold;
+
+        &:hover {
+          background-color: #b3a8ea;
+        }
+      }
+    }
+
+    li:first-child a {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    li:last-child a {
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+  }
+}
