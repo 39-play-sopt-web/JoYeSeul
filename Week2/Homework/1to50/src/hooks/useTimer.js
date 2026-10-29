@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useTimer = () => {
   const [time, setTime] = useState(0);
@@ -11,14 +9,14 @@ export const useTimer = () => {
     if (!isRunning) return;
 
     const intervalId = setInterval(() => {
-      setTime((Date.now() - startedAt.current) / 1000);
+      setTime((performance.now() - startedAt.current) / 1000);
     }, 10);
 
     return () => clearInterval(intervalId);
   }, [isRunning]);
 
   const start = () => {
-    startedAt.current = Date.now();
+    startedAt.current = performance.now();
     setTime(0);
 
     setIsRunning(true);
@@ -27,7 +25,7 @@ export const useTimer = () => {
   const stop = () => {
     setIsRunning(false);
 
-    const finalTime = (Date.now() - startedAt.current) / 1000;
+    const finalTime = (performance.now() - startedAt.current) / 1000;
     setTime(finalTime);
 
     return finalTime;
