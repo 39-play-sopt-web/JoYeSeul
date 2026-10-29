@@ -1,5 +1,11 @@
 import * as styles from "./header.css.js";
 
+const LEVEL_OPTIONS = [
+  { value: 1, label: "Level 1 (3x3)" },
+  { value: 2, label: "Level 2 (4x4)" },
+  { value: 3, label: "Level 3 (5x5)" },
+];
+
 const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
   return (
     <header className={styles.header}>
@@ -32,9 +38,11 @@ const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
             value={level}
             onChange={(e) => onChangeLevel(Number(e.target.value))}
           >
-            <option value={1}>Level 1 (3x3)</option>
-            <option value={2}>Level 2 (4x4)</option>
-            <option value={3}>Level 3 (5x5)</option>
+            {LEVEL_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           <p className={styles.timer}>{time.toFixed(2)}초</p>
         </div>
