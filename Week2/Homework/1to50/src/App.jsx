@@ -65,7 +65,7 @@ function App() {
       </main>
 
       <Modal
-        isOpen={!!record}
+        isOpen={record !== null}
         title={`🎉 Level${level} Clear!`}
         description={`${record?.toFixed(2)}초`}
         onConfirm={handleConfirm}
