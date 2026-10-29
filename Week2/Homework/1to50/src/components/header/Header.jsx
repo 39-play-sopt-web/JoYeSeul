@@ -8,6 +8,7 @@ const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
       <nav className={styles.tabList}>
         <button
           type="button"
+          aria-pressed={tab === "game"}
           className={styles.tabButton({ active: tab === "game" })}
           onClick={() => onChangeTab("game")}
         >
@@ -15,6 +16,7 @@ const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
         </button>
         <button
           type="button"
+          aria-pressed={tab === "ranking"}
           className={styles.tabButton({ active: tab === "ranking" })}
           onClick={() => onChangeTab("ranking")}
         >
@@ -25,6 +27,7 @@ const Header = ({ tab, onChangeTab, level, onChangeLevel, time }) => {
       {tab === "game" && (
         <div className={styles.levelInfo}>
           <select
+            aria-label="게임 레벨 선택"
             className={styles.levelSelect}
             value={level}
             onChange={(e) => onChangeLevel(Number(e.target.value))}
