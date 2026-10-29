@@ -18,7 +18,8 @@ header {
     color: #6a5acd;
   }
 
-  img {
+  .avatar,
+  .logo {
     width: 30px;
     height: 30px;
 
