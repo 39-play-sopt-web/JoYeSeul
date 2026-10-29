@@ -24,6 +24,7 @@
   li {
     flex-shrink: 0;
     margin-right: 12px;
+    scroll-snap-align: start;
 
     img {
       width: 200px;
