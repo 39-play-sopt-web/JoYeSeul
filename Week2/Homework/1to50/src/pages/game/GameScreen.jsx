@@ -2,7 +2,10 @@ import { useGame } from "../../hooks/useGame";
 import * as styles from "./gameScreen.css.js";
 
 function GameScreen({ level, onStart, onFinish }) {
-  const { size, total, board, next, isFinished, click } = useGame(level);
+  const { size, total, board, next, isFinished, click } = useGame(level, {
+    onStart,
+    onFinish,
+  });
 
   return (
     <section className={styles.container}>
@@ -24,11 +27,7 @@ function GameScreen({ level, onStart, onFinish }) {
             type="button"
             className={styles.number}
             disabled={isFinished || num === null}
-            onClick={() => {
-              if (num === 1) onStart();
-              if (num === next && next === total) onFinish();
-              click(index);
-            }}
+            onClick={() => click(index)}
           >
             {num}
           </button>

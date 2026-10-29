@@ -26,26 +26,23 @@ const initGame = (size) => {
   };
 };
 
+const isCorrectClick = (state, index) => state.board[index] === state.next;
+
 function reducer(state, action) {
   switch (action.type) {
     case "click": {
-      const index = action.index;
-      const clickedNumber = state.board[index];
+      if (!isCorrectClick(state, action.index)) return state;
 
-      if (clickedNumber === state.next) {
-        const board = [...state.board];
-        const queue = [...state.queue];
-        board[index] = queue.shift() ?? null;
+      const board = [...state.board];
+      const queue = [...state.queue];
+      board[action.index] = queue.shift() ?? null;
 
-        return {
-          ...state,
-          board: board,
-          queue: queue,
-          next: state.next + 1,
-        };
-      }
-
-      return state;
+      return {
+        ...state,
+        board: board,
+        queue: queue,
+        next: state.next + 1,
+      };
     }
     case "reset":
       return initGame(state.size);
@@ -54,11 +51,20 @@ function reducer(state, action) {
   }
 }
 
-export const useGame = (level) => {
+export const useGame = (level, { onStart, onFinish } = {}) => {
   const size = level + 2;
   const total = size * size * 2;
   const [state, dispatch] = useReducer(reducer, size, initGame);
-  const isFinished = state.next > size * size * 2;
+  const isFinished = state.next > total;
+
+  const click = (index) => {
+    if (!isCorrectClick(state, index)) return;
+
+    if (state.next === 1) onStart?.();
+    if (state.next === total) onFinish?.();
+
+    dispatch({ type: "click", index: index });
+  };
 
   return {
     size: size,
@@ -66,7 +72,7 @@ export const useGame = (level) => {
     board: state.board,
     next: state.next,
     isFinished: isFinished,
-    click: (index) => dispatch({ type: "click", index: index }),
+    click: click,
     reset: () => dispatch({ type: "reset" }),
   };
 };
