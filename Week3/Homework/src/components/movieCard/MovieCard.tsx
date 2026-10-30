@@ -3,6 +3,7 @@ import { TMDB_IMAGE_BASE_URL } from "../../constants/image";
 import type { Movie } from "../../types/movie";
 import { formatDate } from "../../utils/formatDate";
 import * as styles from "./movieCard.css";
+import { visuallyHidden } from "../../styles/a11y.css";
 
 interface MovieCardProps {
   movie: Movie;
@@ -17,13 +18,15 @@ export default function MovieCard({ movie }: MovieCardProps) {
             <img
               className={styles.poster}
               src={`${TMDB_IMAGE_BASE_URL}/w500${movie.poster_path}`}
-              alt={movie.title}
+              alt=""
             />
           ) : (
             <div className={styles.noPoster}>No Image</div>
           )}
           <span className={styles.rating}>
-            ★ {movie.vote_average.toFixed(1)}
+            <span aria-hidden="true">★ </span>
+            <span className={visuallyHidden}>평점 </span>
+            {movie.vote_average.toFixed(1)}
           </span>
         </div>
         <div className={styles.info}>

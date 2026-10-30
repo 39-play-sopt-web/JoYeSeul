@@ -15,7 +15,7 @@ export default function RatingFilter({
   onSelect,
 }: RatingFilterProps) {
   return (
-    <ul className={styles.list}>
+    <ul className={styles.list} aria-label="별점 필터">
       {RATING_FILTER_OPTIONS.map((option) => (
         <li key={option.key}>
           <Chip

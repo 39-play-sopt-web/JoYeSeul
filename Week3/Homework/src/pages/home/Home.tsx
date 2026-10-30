@@ -22,10 +22,20 @@ export default function Home() {
           ))}
         </ul>
 
-        {isLoading && <p className={styles.message}>영화를 불러오는 중...</p>}
-        {isError && <p className={styles.message}>영화를 불러오지 못했어요.</p>}
+        {isLoading && (
+          <p className={styles.message} role="status">
+            영화를 불러오는 중...
+          </p>
+        )}
+        {isError && (
+          <p className={styles.message} role="alert">
+            영화를 불러오지 못했어요.
+          </p>
+        )}
         {!isLoading && !isError && movies.length === 0 && (
-          <p className={styles.message}>조건에 맞는 영화가 없어요.</p>
+          <p className={styles.message} role="status">
+            조건에 맞는 영화가 없어요.
+          </p>
         )}
 
         <div ref={sentinelRef} className={styles.sentinel} />

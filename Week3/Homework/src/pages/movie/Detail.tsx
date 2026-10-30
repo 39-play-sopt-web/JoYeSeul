@@ -10,6 +10,7 @@ import {
   getStatusLabel,
 } from "../../utils/formatMovie";
 import * as styles from "./detail.css";
+import { visuallyHidden } from "../../styles/a11y.css";
 
 export default function Detail() {
   const { movieId } = useParams();
@@ -23,7 +24,9 @@ export default function Detail() {
     return (
       <>
         <Header />
-        <p className={styles.message}>영화 정보를 불러오는 중...</p>
+        <p className={styles.message} role="status">
+          영화 정보를 불러오는 중...
+        </p>
       </>
     );
   }
@@ -33,9 +36,9 @@ export default function Detail() {
       <>
         <Header />
         <div className={styles.message}>
-          <p>영화 정보를 불러오지 못했어요.</p>
+          <p role="alert">영화 정보를 불러오지 못했어요.</p>
           <Link to="/" className={styles.backLink}>
-            ← 목록으로 돌아가기
+            <span aria-hidden="true">← </span>목록으로 돌아가기
           </Link>
         </div>
       </>
@@ -46,10 +49,11 @@ export default function Detail() {
 
   return (
     <>
+      <title>{`${movie.title} | PLAY SOPT MOVIE`}</title>
       <Header />
       <main className={styles.page}>
         <Link to="/" className={styles.backLink}>
-          ← 목록으로 돌아가기
+          <span aria-hidden="true">← </span>목록으로 돌아가기
         </Link>
 
         <section className={styles.hero}>
@@ -79,12 +83,18 @@ export default function Detail() {
 
               <div className={styles.meta}>
                 <span className={styles.rating}>
-                  ★ {movie.vote_average.toFixed(1)}
+                  <span aria-hidden="true">★ </span>
+                  <span className={visuallyHidden}>평점 </span>
+                  {movie.vote_average.toFixed(1)}
                 </span>
                 <span>{formatDate(movie.release_date)}</span>
-                <span className={styles.dot}>·</span>
+                <span className={styles.dot} aria-hidden="true">
+                  ·
+                </span>
                 <span>{formatRuntime(movie.runtime)}</span>
-                <span className={styles.dot}>·</span>
+                <span className={styles.dot} aria-hidden="true">
+                  ·
+                </span>
                 <span>투표 {movie.vote_count.toLocaleString()}명</span>
                 <span className={styles.status}>
                   {getStatusLabel(movie.status)}
