@@ -11,7 +11,7 @@ import {
 } from "../../utils/formatMovie";
 import * as styles from "./detail.css";
 
-export default function MovieDetail() {
+export default function Detail() {
   const { movieId } = useParams();
   const { movie, isLoading, isError } = useMovieDetail(Number(movieId));
 
