@@ -17,6 +17,10 @@ export function useMovieDetail(movieId: number) {
         console.error(error);
         if (!ignore) setIsError(true);
       });
+
+    return () => {
+      ignore = true;
+    };
   }, [movieId]);
 
   const isLoading = !movie && !isError;
