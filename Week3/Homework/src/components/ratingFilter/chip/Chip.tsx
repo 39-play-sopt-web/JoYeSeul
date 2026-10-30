@@ -15,6 +15,7 @@ export default function Chip({
     <button
       type="button"
       className={styles.chip({ selected: isSelected })}
+      aria-pressed={isSelected}
       onClick={onClick}
     >
       {label}
