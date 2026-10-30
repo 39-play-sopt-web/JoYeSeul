@@ -26,4 +26,5 @@ export const colors = {
 export const media = {
   tablet: "screen and (min-width: 768px)",
   desktop: "screen and (min-width: 1024px)",
+  wide: "screen and (min-width: 1280px)",
 } as const;

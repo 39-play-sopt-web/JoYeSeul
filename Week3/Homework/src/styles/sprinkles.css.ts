@@ -9,6 +9,7 @@ const responsiveProperties = defineProperties({
     mobile: {},
     tablet: { "@media": media.tablet },
     desktop: { "@media": media.desktop },
+    wide: { "@media": media.wide },
   },
   defaultCondition: "mobile",
   properties: {
@@ -22,6 +23,7 @@ const responsiveProperties = defineProperties({
       2: "repeat(2, minmax(0, 1fr))",
       3: "repeat(3, minmax(0, 1fr))",
       4: "repeat(4, minmax(0, 1fr))",
+      5: "repeat(5, minmax(0, 1fr))",
     },
     gap: vars.spacing,
     paddingTop: vars.spacing,
