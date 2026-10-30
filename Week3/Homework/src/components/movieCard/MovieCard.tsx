@@ -1,3 +1,4 @@
+import { TMDB_IMAGE_BASE_URL } from "../../constants/image.ts";
 import type { Movie } from "../../types/movie";
 import { formatDate } from "../../utils/formatDate.ts";
 import * as styles from "./movieCard.css.ts";
@@ -13,7 +14,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
         {movie.poster_path ? (
           <img
             className={styles.poster}
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={`${TMDB_IMAGE_BASE_URL}/w500${movie.poster_path}`}
             alt={movie.title}
           />
         ) : (
