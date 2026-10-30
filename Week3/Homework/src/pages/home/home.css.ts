@@ -39,3 +39,16 @@ export const list = style([
     gap: "lg",
   }),
 ]);
+
+export const message = style([
+  sprinkles({
+    fontSize: "sm",
+    color: "textSubtle",
+    paddingBlock: "xl",
+  }),
+  {
+    textAlign: "center",
+  },
+]);
+
+export const sentinel = style([{ height: 1 }]);

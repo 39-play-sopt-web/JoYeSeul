@@ -1,37 +1,19 @@
-import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import RatingFilter from "../../components/ratingFilter/RatingFilter.tsx";
 import * as styles from "./home.css.ts";
-import { getMovies } from "../../apis/movie.ts";
-import type { Movie } from "../../types/movie.ts";
 import MovieCard from "../../components/movieCard/MovieCard.tsx";
-import { RATING_FILTER_OPTIONS } from "../../constants/ratingFilter.ts";
+import { useMovieList } from "../../hooks/useMovieList.ts";
 
 export default function Home() {
-  const [selectedRate, setSelectedRate] = useState<string>("all");
-  const [movies, setMovies] = useState<Movie[]>([]);
-
-  useEffect(() => {
-    const option = RATING_FILTER_OPTIONS.find((o) => o.key === selectedRate);
-    let ignore = false;
-
-    getMovies({ page: 1, min: option?.min, max: option?.max })
-      .then((data) => {
-        if (!ignore) setMovies(data.results);
-      })
-      .catch((error) => console.error(error));
-
-    return () => {
-      ignore = true;
-    };
-  }, [selectedRate]);
+  const { rateKey, movies, isLoading, isError, selectRate, sentinelRef } =
+    useMovieList();
 
   return (
     <>
       <Header />
       <main className={styles.main}>
         <h2 className={styles.title}>영화 둘러보기</h2>
-        <RatingFilter selectedKey={selectedRate} onSelect={setSelectedRate} />
+        <RatingFilter selectedKey={rateKey} onSelect={selectRate} />
         <ul className={styles.list}>
           {movies.map((movie) => (
             <li key={movie.id}>
@@ -39,6 +21,14 @@ export default function Home() {
             </li>
           ))}
         </ul>
+
+        {isLoading && <p className={styles.message}>영화를 불러오는 중...</p>}
+        {isError && <p className={styles.message}>영화를 불러오지 못했어요.</p>}
+        {!isLoading && !isError && movies.length === 0 && (
+          <p className={styles.message}>조건에 맞는 영화가 없어요.</p>
+        )}
+
+        <div ref={sentinelRef} className={styles.sentinel} />
       </main>
     </>
   );
