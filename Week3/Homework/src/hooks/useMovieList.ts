@@ -1,12 +1,15 @@
 import { useEffect, useReducer, useRef } from "react";
 import type { Movie } from "../types/movie";
 import { getMovies } from "../apis/movie";
-import { RATING_FILTER_OPTIONS } from "../constants/ratingFilter";
+import {
+  RATING_FILTER_OPTIONS,
+  type RatingKey,
+} from "../constants/ratingFilter";
 
 const MAX_PAGE = 500;
 
 interface MovieListState {
-  rateKey: string;
+  rateKey: RatingKey;
   page: number;
   movies: Movie[];
   hasMore: boolean;
@@ -15,7 +18,7 @@ interface MovieListState {
 }
 
 type MovieListAction =
-  | { type: "SELECT_RATE"; key: string }
+  | { type: "SELECT_RATE"; key: RatingKey }
   | { type: "LOAD_MORE" }
   | { type: "FETCH_SUCCESS"; page: number; movies: Movie[]; hasMore: boolean }
   | { type: "FETCH_ERROR" };
@@ -112,7 +115,7 @@ export function useMovieList() {
     return () => observer.disconnect();
   }, [isLoading, hasMore]);
 
-  const selectRate = (key: string) => dispatch({ type: "SELECT_RATE", key });
+  const selectRate = (key: RatingKey) => dispatch({ type: "SELECT_RATE", key });
 
   return { ...state, selectRate, sentinelRef };
 }

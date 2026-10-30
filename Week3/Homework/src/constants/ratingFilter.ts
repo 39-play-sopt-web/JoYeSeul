@@ -1,5 +1,12 @@
+export type RatingKey =
+  | "all"
+  | "over9"
+  | "over8"
+  | "over7"
+  | "over6"
+  | "under6";
 export interface RatingFilterOption {
-  key: string;
+  key: RatingKey;
   label: string;
   min?: number;
   max?: number;

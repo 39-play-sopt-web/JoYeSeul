@@ -1,10 +1,13 @@
-import { RATING_FILTER_OPTIONS } from "../../constants/ratingFilter";
+import {
+  RATING_FILTER_OPTIONS,
+  type RatingKey,
+} from "../../constants/ratingFilter";
 import Chip from "./chip/Chip";
 import * as styles from "./ratingFilter.css";
 
 interface RatingFilterProps {
-  selectedKey: string;
-  onSelect: (key: string) => void;
+  selectedKey: RatingKey;
+  onSelect: (key: RatingKey) => void;
 }
 
 export default function RatingFilter({
