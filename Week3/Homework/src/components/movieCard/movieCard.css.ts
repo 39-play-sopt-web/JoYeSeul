@@ -2,6 +2,20 @@ import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../../styles/sprinkles.css";
 import { vars } from "../../styles/theme.css";
 
+export const link = style([
+  sprinkles({
+    display: "block",
+    borderRadius: "md",
+  }),
+  {
+    height: "100%",
+    ":focus-visible": {
+      outline: `2px solid ${vars.color.primary.normal}`,
+      outlineOffset: "2px",
+    },
+  },
+]);
+
 export const card = style([
   sprinkles({
     display: "flex",
