@@ -1,6 +1,6 @@
 import { RATING_FILTER_OPTIONS } from "../../constants/ratingFilter";
 import Chip from "./chip/Chip";
-import * as styles from "./ratingFilter.css.ts";
+import * as styles from "./ratingFilter.css";
 
 interface RatingFilterProps {
   selectedKey: string;

@@ -1,8 +1,8 @@
 import Header from "../../components/header/Header";
-import RatingFilter from "../../components/ratingFilter/RatingFilter.tsx";
-import * as styles from "./home.css.ts";
-import MovieCard from "../../components/movieCard/MovieCard.tsx";
-import { useMovieList } from "../../hooks/useMovieList.ts";
+import RatingFilter from "../../components/ratingFilter/RatingFilter";
+import * as styles from "./home.css";
+import MovieCard from "../../components/movieCard/MovieCard";
+import { useMovieList } from "../../hooks/useMovieList";
 
 export default function Home() {
   const { rateKey, movies, isLoading, isError, selectRate, sentinelRef } =

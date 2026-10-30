@@ -1,4 +1,4 @@
-import * as styles from "./chip.css.ts";
+import * as styles from "./chip.css";
 
 interface ChipProps {
   label: string;

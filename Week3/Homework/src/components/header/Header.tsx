@@ -1,4 +1,4 @@
-import * as styles from "./header.css.ts";
+import * as styles from "./header.css";
 
 export default function Header() {
   return (

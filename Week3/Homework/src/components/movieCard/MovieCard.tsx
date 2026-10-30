@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import { TMDB_IMAGE_BASE_URL } from "../../constants/image.ts";
+import { TMDB_IMAGE_BASE_URL } from "../../constants/image";
 import type { Movie } from "../../types/movie";
-import { formatDate } from "../../utils/formatDate.ts";
-import * as styles from "./movieCard.css.ts";
+import { formatDate } from "../../utils/formatDate";
+import * as styles from "./movieCard.css";
 
 interface MovieCardProps {
   movie: Movie;

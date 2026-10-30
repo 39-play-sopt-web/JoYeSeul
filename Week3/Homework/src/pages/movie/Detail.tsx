@@ -9,7 +9,7 @@ import {
   getMovieInfoItems,
   getStatusLabel,
 } from "../../utils/formatMovie";
-import * as styles from "./detail.css.ts";
+import * as styles from "./detail.css";
 
 export default function MovieDetail() {
   const { movieId } = useParams();
