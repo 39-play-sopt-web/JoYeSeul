@@ -4,9 +4,13 @@ import { getMovieDetail } from "../apis/movie";
 
 export function useMovieDetail(movieId: number) {
   const [movie, setMovie] = useState<MovieDetail | null>(null);
-  const [isError, setIsError] = useState(false);
+  const [isFetchError, setIsFetchError] = useState(false);
+
+  const isInvalidId = !Number.isInteger(movieId) || movieId <= 0;
 
   useEffect(() => {
+    if (isInvalidId) return;
+
     let ignore = false;
 
     getMovieDetail(movieId)
@@ -15,14 +19,15 @@ export function useMovieDetail(movieId: number) {
       })
       .catch((error) => {
         console.error(error);
-        if (!ignore) setIsError(true);
+        if (!ignore) setIsFetchError(true);
       });
 
     return () => {
       ignore = true;
     };
-  }, [movieId]);
+  }, [movieId, isInvalidId]);
 
+  const isError = isInvalidId || isFetchError;
   const isLoading = !movie && !isError;
 
   return { movie, isLoading, isError };
