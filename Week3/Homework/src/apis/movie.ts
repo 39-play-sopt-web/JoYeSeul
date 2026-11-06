@@ -11,7 +11,6 @@ export const getMovies = async ({ page, min, max }: GetMoviesParams) => {
   const { data } = await API.get<MovieListResponse>("/discover/movie", {
     params: {
       page,
-      language: "ko-KR",
       "vote_average.gte": min,
       "vote_average.lte": max,
     },
@@ -21,9 +20,7 @@ export const getMovies = async ({ page, min, max }: GetMoviesParams) => {
 };
 
 export const getMovieDetail = async (movieId: number) => {
-  const { data } = await API.get<MovieDetail>(`/movie/${movieId}`, {
-    params: { language: "ko-KR" },
-  });
+  const { data } = await API.get<MovieDetail>(`/movie/${movieId}`);
 
   return data;
 };
