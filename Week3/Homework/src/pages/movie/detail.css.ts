@@ -322,3 +322,10 @@ export const message = style([
   }),
   { textAlign: "center" },
 ]);
+
+export const errorBackLink = style([
+  backLink,
+  {
+    alignSelf: "center",
+  },
+]);

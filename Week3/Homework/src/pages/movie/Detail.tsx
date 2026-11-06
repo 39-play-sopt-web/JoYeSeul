@@ -37,7 +37,7 @@ export default function Detail() {
         <Header />
         <div className={styles.message}>
           <p role="alert">영화 정보를 불러오지 못했어요.</p>
-          <Link to="/" className={styles.backLink}>
+          <Link to="/" className={styles.errorBackLink}>
             <span aria-hidden="true">← </span>목록으로 돌아가기
           </Link>
         </div>
