@@ -1,5 +1,6 @@
 {
   "endOfLine": "auto",
   "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["cva", "cn"],
   "tailwindStylesheet": "./src/styles/index.css"
 }
