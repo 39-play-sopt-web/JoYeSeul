@@ -1,4 +1,5 @@
 import Button from "@/components/button/Button";
+import TextField from "@/components/textField/TextField";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useSearchParams } from "react-router";
 
@@ -23,13 +24,13 @@ export default function Search() {
 
   return (
     <form role="search" className="flex gap-2" onSubmit={handleSubmit}>
-      <input
+      <TextField
         aria-label="게시글 제목 검색"
         type="search"
         value={keyword}
         onChange={handleChange}
         placeholder="검색어를 입력하세요"
-        className="h-9 flex-1 rounded-md border border-line-strong bg-surface px-3 text-label"
+        className="flex-1"
       />
       <Button type="submit" size="sm" disabled={keyword.trim().length === 0}>
         검색
