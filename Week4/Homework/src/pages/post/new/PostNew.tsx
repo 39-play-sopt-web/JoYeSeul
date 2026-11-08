@@ -1,6 +1,7 @@
 import Button from "@/components/button/Button";
 import TextArea from "@/components/textArea/TextArea";
 import TextField from "@/components/textField/TextField";
+import { useCreatePost } from "@/hooks/useCreatePost";
 import { useState, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 
@@ -43,6 +44,8 @@ export default function PostNew() {
   const value = form[step];
   const isInvalid = value.trim() === "" || value.length > current.limit;
 
+  const { mutate, isPending } = useCreatePost();
+
   const handleChange = (newValue: string) => {
     setForm((prev) => ({ ...prev, [step]: newValue }));
   };
@@ -55,6 +58,23 @@ export default function PostNew() {
       setStep(current.next);
       return;
     }
+
+    mutate(
+      {
+        title: form.title.trim(),
+        content: form.content.trim(),
+        author: form.author.trim(),
+      },
+      {
+        onSuccess: () => {
+          alert(`${form.author.trim()}님의 게시글이 작성되었습니다.`);
+          navigate("/posts");
+        },
+        onError: () => {
+          alert("게시글 작성에 실패했습니다. 다시 시도해주세요.");
+        },
+      },
+    );
   };
 
   return (
@@ -86,8 +106,8 @@ export default function PostNew() {
           >
             목록으로
           </Button>
-          <Button type="submit" size="sm" disabled={isInvalid}>
-            {current.next ? "다음" : "작성"}
+          <Button type="submit" size="sm" disabled={isInvalid || isPending}>
+            {current.next ? "다음" : isPending ? "작성 중..." : "작성"}
           </Button>
         </div>
       </form>
