@@ -67,7 +67,7 @@ export default function PostNew() {
       },
       {
         onSuccess: () => {
-          alert(`${form.author.trim()}님의 게시글이 작성되었습니다.`);
+          alert("게시글이 작성되었습니다.");
           navigate("/posts");
         },
         onError: () => {
