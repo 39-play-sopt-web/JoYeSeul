@@ -27,7 +27,7 @@ export default function PostList() {
   return (
     <section className="mx-auto flex max-w-180 flex-col gap-4 px-4 py-4">
       <h1 className="sr-only">게시글 목록</h1>
-      <Search />
+      <Search key={keyword} />
       {isPending && (
         <p className="py-4 text-center text-body text-fg-muted">
           불러오는 중...
