@@ -32,7 +32,7 @@ export default function Search() {
         placeholder="검색어를 입력하세요"
         className="flex-1"
       />
-      <Button type="submit" size="sm" disabled={keyword.trim().length === 0}>
+      <Button type="submit" size="sm" disabled={keyword.trim().length < 2}>
         검색
       </Button>
     </form>
