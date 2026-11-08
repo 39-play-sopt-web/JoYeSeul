@@ -1,0 +1,92 @@
+@theme {
+  /* font */
+  --font-sans: "Pretendard", system-ui, sans-serif;
+
+  /* default */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* atomic */
+  --color-mint-50: #ecfdfb;
+  --color-mint-100: #d4fcf6;
+  --color-mint-200: #a9f9ef;
+  --color-mint-300: #80efe4;
+  --color-mint-400: #56dcd3;
+  --color-mint-500: #31c4bf;
+  --color-mint-600: #239f9f;
+  --color-mint-700: #19787b;
+  --color-mint-800: #105156;
+  --color-mint-900: #0a3438;
+
+  --color-gray-50: #f3f4f6;
+  --color-gray-100: #e2e3e9;
+  --color-gray-200: #c5c6d3;
+  --color-gray-300: #a2a4b9;
+  --color-gray-400: #7c7f96;
+  --color-gray-500: #5c5f73;
+  --color-gray-600: #464857;
+  --color-gray-700: #2e3040;
+  --color-gray-800: #22232f;
+  --color-gray-900: #181922;
+  --color-gray-950: #111218;
+
+  --color-red: #ff6b6b;
+  --color-green: #4ade80;
+  --color-yellow: #fbbf24;
+
+  /* semantic */
+  --color-canvas: var(--color-gray-900);
+  --color-surface: var(--color-gray-800);
+  --color-elevated: var(--color-gray-700);
+  --color-overlay: color-mix(in oklab, var(--color-black) 60%, transparent);
+
+  --color-fg-default: var(--color-gray-50);
+  --color-fg-muted: var(--color-gray-300);
+  --color-fg-subtle: var(--color-gray-400);
+  --color-fg-disabled: var(--color-gray-500);
+  --color-fg-on-primary: var(--color-gray-900);
+
+  --color-line: var(--color-gray-700);
+  --color-line-strong: var(--color-gray-600);
+  --color-line-focus: var(--color-mint-200);
+
+  --color-primary: var(--color-mint-200);
+  --color-primary-hover: var(--color-mint-300);
+  --color-primary-pressed: var(--color-mint-400);
+  --color-primary-subtle: var(--color-mint-900);
+
+  --color-disabled: var(--color-gray-700);
+
+  --color-error: var(--color-red);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-yellow);
+
+  /* typography */
+  --text-title-lg: 1.5rem;
+  --text-title-lg--line-height: 2rem;
+  --text-title-lg--font-weight: 700;
+  --text-title-lg--letter-spacing: -0.02em;
+
+  --text-title-md: 1.125rem;
+  --text-title-md--line-height: 1.625rem;
+  --text-title-md--font-weight: 600;
+  --text-title-md--letter-spacing: -0.01em;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.5rem;
+  --text-body--font-weight: 500;
+
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.25rem;
+  --text-label--font-weight: 600;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+  --text-caption--font-weight: 400;
+
+  /* radius */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
