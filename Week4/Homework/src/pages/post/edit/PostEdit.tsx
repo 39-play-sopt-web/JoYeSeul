@@ -1,18 +1,16 @@
 import Button from "@/components/button/Button";
 import TextArea from "@/components/textArea/TextArea";
 import TextField from "@/components/textField/TextField";
-import { usePostDetail } from "@/hooks/post/usePost";
 import {
   CONTENT_LIMIT,
   TITLE_LIMIT,
   usePostEditForm,
 } from "@/hooks/post/usePostEditForm";
+import { usePostEditPage } from "@/hooks/post/usePostEditPage";
 import type { Post } from "@/types/post";
-import { useParams } from "react-router";
 
 export default function PostEdit() {
-  const { id } = useParams();
-  const { data: post, isPending, isError } = usePostDetail(Number(id));
+  const { post, isPending, isError } = usePostEditPage();
 
   return (
     <section className="mx-auto flex max-w-180 flex-col gap-6 p-4">
