@@ -1,8 +1,6 @@
 import Button from "@/components/button/Button";
+import { PARTS, type Part } from "@/constants/part";
 import { useState } from "react";
-
-const PARTS = ["WEB", "ANDROID", "iOS"] as const;
-type Part = (typeof PARTS)[number];
 
 export default function Home() {
   const [part, setPart] = useState<Part | "">("");
