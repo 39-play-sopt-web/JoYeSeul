@@ -5,7 +5,7 @@ import PostEdit from "@/pages/post/edit/PostEdit";
 import PostList from "@/pages/post/list/PostList";
 import PostNew from "@/pages/post/new/PostNew";
 import { requireAuth } from "@/router/requireAuth";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         loader: requireAuth,
       },
     ],
+  },
+  {
+    path: "*",
+    loader: () => redirect("/posts"),
   },
 ]);
 
