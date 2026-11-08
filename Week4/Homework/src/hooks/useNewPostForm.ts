@@ -1,5 +1,5 @@
 import { useCreatePost } from "@/hooks/usePost";
-import { useReducer } from "react";
+import { useReducer, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 
 export type Step = "title" | "content" | "author";
@@ -76,7 +76,7 @@ export const useNewPostForm = () => {
     dispatch({ type: "CHANGE", value: newValue });
   };
 
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isInvalid) return;
 
@@ -85,20 +85,16 @@ export const useNewPostForm = () => {
       return;
     }
 
+    const author = form.author.trim();
+
     mutate(
-      {
-        title: form.title.trim(),
-        content: form.content.trim(),
-        author: form.author.trim(),
-      },
+      { title: form.title.trim(), content: form.content.trim(), author },
       {
         onSuccess: () => {
-          alert("게시글이 작성되었습니다.");
+          alert(`${author}님의 게시글이 작성되었습니다.`);
           navigate("/posts");
         },
-        onError: () => {
-          alert("게시글 작성에 실패했습니다. 다시 시도해주세요.");
-        },
+        onError: () => alert("게시글 작성에 실패했습니다. 다시 시도해주세요."),
       },
     );
   };
