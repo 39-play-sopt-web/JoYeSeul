@@ -26,3 +26,9 @@ export interface CreatePostRequest {
   content: string;
   author: string;
 }
+
+/* 게시글 수정 */
+export interface UpdatePostRequest {
+  title: string;
+  content: string;
+}

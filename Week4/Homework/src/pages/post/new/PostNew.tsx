@@ -1,7 +1,7 @@
 import Button from "@/components/button/Button";
 import TextArea from "@/components/textArea/TextArea";
 import TextField from "@/components/textField/TextField";
-import { useCreatePost } from "@/hooks/useCreatePost";
+import { useCreatePost } from "@/hooks/usePost";
 import { useState, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 

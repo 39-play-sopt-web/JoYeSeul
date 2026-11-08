@@ -1,7 +1,7 @@
 import Card from "@/components/card/Card";
 import Search from "@/components/search/Search";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { usePostList } from "@/hooks/usePostList";
+import { usePostList } from "@/hooks/usePost";
 import { useCallback } from "react";
 import { useSearchParams } from "react-router";
 
