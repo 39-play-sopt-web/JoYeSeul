@@ -1,6 +1,6 @@
 import Button from "@/components/button/Button";
 import TextField from "@/components/textField/TextField";
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import { useSearchParams } from "react-router";
 
 export default function Search() {
@@ -9,7 +9,7 @@ export default function Search() {
     searchParams.get("query") ?? "",
   );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearchParams({ query: keyword.trim() });
   };
