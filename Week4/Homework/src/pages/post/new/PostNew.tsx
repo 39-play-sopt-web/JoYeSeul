@@ -79,7 +79,7 @@ export default function PostNew() {
 
   return (
     <section className="mx-auto flex max-w-180 flex-col gap-4 p-4">
-      <h1 className="text-title-md">글쓰기</h1>
+      <h1 className="text-title-md">게시글 작성</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {step === "content" ? (
           <TextArea
