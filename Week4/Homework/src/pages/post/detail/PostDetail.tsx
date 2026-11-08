@@ -1,5 +1,6 @@
 import Button from "@/components/button/Button";
 import { useDeletePost, usePostDetail } from "@/hooks/usePost";
+import { hasAuthCode } from "@/router/requireAuth";
 import { formatDate } from "@/utils/formatDate";
 import { useNavigate, useParams } from "react-router";
 
@@ -12,7 +13,13 @@ export default function PostDetail() {
   const { mutate: deletePost, isPending: isDeleting } = useDeletePost();
 
   const handleDelete = () => {
-    if (!confirm("정말로 삭제하시겠습니까?")) return;
+    if (!hasAuthCode()) {
+      alert("먼저 파트를 선택하고 코드를 발급받아 주세요.");
+      navigate("/");
+      return;
+    }
+
+    if (!confirm("게시글을 삭제할까요?")) return;
 
     deletePost(postId, {
       onSuccess: () => {
