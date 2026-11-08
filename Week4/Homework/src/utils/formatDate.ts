@@ -1,5 +1,5 @@
 export const formatDate = (iso: string) =>
-  new Date(iso).toLocaleString("ko-KR", {
+  new Date(`${iso}Z`).toLocaleString("ko-KR", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
