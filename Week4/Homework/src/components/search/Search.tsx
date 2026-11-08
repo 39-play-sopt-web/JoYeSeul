@@ -1,26 +1,9 @@
 import Button from "@/components/button/Button";
 import TextField from "@/components/textField/TextField";
-import { useState, type ChangeEvent, type SubmitEvent } from "react";
-import { useSearchParams } from "react-router";
+import { useSearchKeyword } from "@/hooks/useSearchKeyword";
 
 export default function Search() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [keyword, setKeyword] = useState<string>(
-    searchParams.get("query") ?? "",
-  );
-
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSearchParams({ query: keyword.trim() });
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setKeyword(value);
-    if (value.trim() === "") {
-      setSearchParams({});
-    }
-  };
+  const { keyword, canSearch, handleChange, handleSubmit } = useSearchKeyword();
 
   return (
     <form role="search" className="flex gap-2" onSubmit={handleSubmit}>
@@ -32,7 +15,7 @@ export default function Search() {
         placeholder="검색어를 입력하세요"
         className="flex-1"
       />
-      <Button type="submit" size="sm" disabled={keyword.trim().length < 2}>
+      <Button type="submit" size="sm" disabled={!canSearch}>
         검색
       </Button>
     </form>
