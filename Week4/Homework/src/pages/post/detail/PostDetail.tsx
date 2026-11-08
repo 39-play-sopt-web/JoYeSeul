@@ -1,41 +1,19 @@
 import Button from "@/components/button/Button";
-import { useDeletePost, usePostDetail } from "@/hooks/usePost";
-import { hasAuthCode } from "@/router/requireAuth";
+import { useDeletePostAction } from "@/hooks/useDeletePostAction";
+import { usePostDetailPage } from "@/hooks/usePostDetailPage";
 import { formatDate } from "@/utils/formatDate";
-import { useNavigate, useParams } from "react-router";
 
 export default function PostDetail() {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const postId = Number(id);
-
-  const { data: post, isPending, isError } = usePostDetail(postId);
-  const { mutate: deletePost, isPending: isDeleting } = useDeletePost();
-
-  const handleDelete = () => {
-    if (!hasAuthCode()) {
-      alert("먼저 파트를 선택하고 코드를 발급받아 주세요.");
-      navigate("/");
-      return;
-    }
-
-    if (!confirm("게시글을 삭제할까요?")) return;
-
-    deletePost(postId, {
-      onSuccess: () => {
-        alert("게시글이 삭제되었습니다.");
-        navigate("/posts", { replace: true });
-      },
-      onError: () => alert("게시글 삭제에 실패했습니다. 다시 시도해주세요."),
-    });
-  };
+  const { postId, post, isPending, isError, goList, goEdit } =
+    usePostDetailPage();
+  const { handleDelete, isDeleting } = useDeletePostAction(postId);
 
   return (
     <section className="mx-auto flex max-w-180 flex-col gap-4 p-4">
       <Button
         variant="secondary"
         size="sm"
-        onClick={() => navigate("/posts")}
+        onClick={goList}
         className="self-start"
       >
         ← 목록으로
@@ -65,11 +43,7 @@ export default function PostDetail() {
             {post.content}
           </p>
           <div className="flex justify-end gap-2">
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={() => navigate(`/posts/${id}/edit`)}
-            >
+            <Button variant="secondary" size="sm" onClick={goEdit}>
               수정
             </Button>
             <Button size="sm" onClick={handleDelete} disabled={isDeleting}>
