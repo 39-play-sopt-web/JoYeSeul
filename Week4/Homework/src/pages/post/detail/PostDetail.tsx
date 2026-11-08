@@ -1,6 +1,6 @@
 import Button from "@/components/button/Button";
-import { useDeletePostAction } from "@/hooks/useDeletePostAction";
-import { usePostDetailPage } from "@/hooks/usePostDetailPage";
+import { useDeletePostAction } from "@/hooks/post/useDeletePostAction";
+import { usePostDetailPage } from "@/hooks/post/usePostDetailPage";
 import { formatDate } from "@/utils/formatDate";
 
 export default function PostDetail() {

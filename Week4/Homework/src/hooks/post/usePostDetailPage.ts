@@ -1,4 +1,4 @@
-import { usePostDetail } from "@/hooks/usePost";
+import { usePostDetail } from "@/hooks/post/usePost";
 import { useNavigate, useParams } from "react-router";
 
 export const usePostDetailPage = () => {

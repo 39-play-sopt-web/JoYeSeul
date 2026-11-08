@@ -1,6 +1,6 @@
 import Button from "@/components/button/Button";
 import TextField from "@/components/textField/TextField";
-import { useSearchKeyword } from "@/hooks/useSearchKeyword";
+import { useSearchKeyword } from "@/hooks/post/useSearchKeyword";
 
 export default function Search() {
   const { keyword, canSearch, handleChange, handleSubmit } = useSearchKeyword();

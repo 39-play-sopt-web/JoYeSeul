@@ -1,6 +1,6 @@
 import Button from "@/components/button/Button";
 import { PARTS, type Part } from "@/constants/part";
-import { useIssueCodeForm } from "@/hooks/useIssueCodeForm";
+import { useIssueCodeForm } from "@/hooks/auth/useIssueCodeForm";
 
 export default function Home() {
   const { part, setPart, isPending, canSubmit, handleSubmit, goList } =

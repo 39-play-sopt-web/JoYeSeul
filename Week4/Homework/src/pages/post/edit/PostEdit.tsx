@@ -1,12 +1,12 @@
 import Button from "@/components/button/Button";
 import TextArea from "@/components/textArea/TextArea";
 import TextField from "@/components/textField/TextField";
-import { usePostDetail } from "@/hooks/usePost";
+import { usePostDetail } from "@/hooks/post/usePost";
 import {
   CONTENT_LIMIT,
   TITLE_LIMIT,
   usePostEditForm,
-} from "@/hooks/usePostEditForm";
+} from "@/hooks/post/usePostEditForm";
 import type { Post } from "@/types/post";
 import { useParams } from "react-router";
 

@@ -1,6 +1,6 @@
 import NavItem from "@/components/navItem/NavItem";
 import { PART_KEY } from "@/constants/storage";
-import { useLogout } from "@/hooks/useLogout";
+import { useLogout } from "@/hooks/auth/useLogout";
 
 export default function Header() {
   const handleLogout = useLogout();

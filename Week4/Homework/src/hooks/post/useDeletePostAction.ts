@@ -1,4 +1,4 @@
-import { useDeletePost } from "@/hooks/usePost";
+import { useDeletePost } from "@/hooks/post/usePost";
 import { hasAuthCode } from "@/router/requireAuth";
 import { useNavigate } from "react-router";
 

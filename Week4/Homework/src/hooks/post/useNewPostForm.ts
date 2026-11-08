@@ -1,4 +1,4 @@
-import { useCreatePost } from "@/hooks/usePost";
+import { useCreatePost } from "@/hooks/post/usePost";
 import { useReducer, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 

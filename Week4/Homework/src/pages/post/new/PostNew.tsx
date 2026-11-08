@@ -1,7 +1,7 @@
 import Button from "@/components/button/Button";
 import TextArea from "@/components/textArea/TextArea";
 import TextField from "@/components/textField/TextField";
-import { useNewPostForm } from "@/hooks/useNewPostForm";
+import { useNewPostForm } from "@/hooks/post/useNewPostForm";
 
 export default function PostNew() {
   const {

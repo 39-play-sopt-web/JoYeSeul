@@ -1,6 +1,6 @@
 import type { Part } from "@/constants/part";
 import { AUTH_CODE_KEY } from "@/constants/storage";
-import { useIssueCode } from "@/hooks/useIssueCode";
+import { useIssueCode } from "@/hooks/auth/useIssueCode";
 import { useState, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 

@@ -1,4 +1,4 @@
-import { useUpdatePost } from "@/hooks/usePost";
+import { useUpdatePost } from "@/hooks/post/usePost";
 import type { Post } from "@/types/post";
 import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import { useNavigate } from "react-router";
