@@ -72,7 +72,7 @@ export default function PostDetail() {
             >
               수정
             </Button>
-            <Button size="sm" onClick={handleDelete}>
+            <Button size="sm" onClick={handleDelete} disabled={isDeleting}>
               {isDeleting ? "삭제 중..." : "삭제"}
             </Button>
           </div>

@@ -89,7 +89,7 @@ function EditForm({ post }: { post: Post }) {
         <Button variant="secondary" size="sm" onClick={() => navigate(-1)}>
           취소
         </Button>
-        <Button type="submit" size="sm" disabled={isInvalid}>
+        <Button type="submit" size="sm" disabled={isInvalid || isPending}>
           {isPending ? "수정 중..." : "수정 완료"}
         </Button>
       </div>
