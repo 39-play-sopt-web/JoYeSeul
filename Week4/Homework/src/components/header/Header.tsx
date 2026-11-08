@@ -1,20 +1,10 @@
 import NavItem from "@/components/navItem/NavItem";
-import { AUTH_CODE_KEY, PART_KEY } from "@/constants/storage";
-import { useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router";
+import { PART_KEY } from "@/constants/storage";
+import { useLogout } from "@/hooks/useLogout";
 
 export default function Header() {
-  const navigate = useNavigate();
-  const queryClient = useQueryClient();
+  const handleLogout = useLogout();
   const part = localStorage.getItem(PART_KEY);
-
-  const handleLogout = () => {
-    localStorage.removeItem(AUTH_CODE_KEY);
-    localStorage.removeItem(PART_KEY);
-    queryClient.clear();
-    alert("로그아웃 되었습니다.");
-    navigate("/", { replace: true });
-  };
 
   return (
     <header className="flex w-full items-center justify-between border-b border-line p-4">
